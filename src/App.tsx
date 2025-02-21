@@ -5,6 +5,8 @@ import Form from "./components/Form";
 import Item from "./components/Item";
 import { TodoProvider } from "./context/context";
 import { Todo } from "./types/customTypes";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 const App: React.FC = () => {
   const [todos, setTodos] = useState<Array<Todo>>([]);
 
@@ -50,8 +52,9 @@ const App: React.FC = () => {
     <TodoProvider
       value={{ todos, addTodo, updateTodo, deleteTodo, toggleComplete }}
     >
-      <div className="bg-[#433878] min-h-screen py-8">
-        <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
+      <div className="bg-[#433878] min-h-screen justify-center items-center ">
+        <Navbar />
+        <div className="w-full max-w-2xl mx-auto shadow-lg rounded-lg px-4 py-3 mt-8 border-t-2 border-t-black  text-white">
           <h1 className="text-2xl font-bold text-center mb-8 mt-2">
             Manage Your Todos
           </h1>
@@ -67,6 +70,7 @@ const App: React.FC = () => {
             ))}
           </div>
         </div>
+        <Footer />
       </div>
     </TodoProvider>
   );
